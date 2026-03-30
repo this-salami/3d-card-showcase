@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(40, 40, 40);
+    color: white;
+    text-align: center;
+}
+
+.cardHolder {
+    width: min(75vw, 50vh);
+    aspect-ratio: 2/3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(20, 20, 20);
+    padding: 4px;
+    border-radius: 5px;
+    border: rgb(0, 80, 100) solid 1px;
+}
+
+.cardHolder > div {
+    width: 90%;
+    height: 90%;
+    align-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition: all 100ms linear;
+}
+
+.cardHolder > div:hover {
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) rotateY(var(--degX)) rotateX(var(--degY)) translate3d(0px, 5px, 10px);
+}
+
+.cardHolder > div .lighting {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: rgba(215, 215, 255, 0.1);
+    transition: all 100ms linear;
+}
+
+.cardHolder > div:hover .lighting {
+    background: radial-gradient(
+        circle at calc(var(--xPos) + 50%) calc(var(--yPos) + 50%), 
+        rgba(215, 215, 255, 0.5) 0%,
+        rgba(215, 215, 255, 0.4) 20%,
+        rgba(215, 215, 255, 0.1) 40%,
+        rgba(0, 0, 0, 0.1) 80%,
+        rgba(0, 0, 0, 0.3) 98%,
+        rgba(0, 0, 0, 0.5) 100%
+    ), linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 0)
+    );
+}
+
+.cardHolder > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
